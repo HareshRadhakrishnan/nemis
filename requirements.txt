@@ -3,3 +3,6 @@ Flask==2.2.3
 
 # Flask Packages
 Flask-SQLAlchemy==3.0.3
+
+
+requests==2.28.2
