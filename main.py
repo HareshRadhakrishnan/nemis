@@ -56,4 +56,4 @@ if __name__ == "__main__":
     #     db.session.add(new_creds)
     #     db.session.commit()
     #     print(User.query.all()[0].username)
-    app.run(host='0.0.0.0', port=5000,debug=True)
+    app.run()
