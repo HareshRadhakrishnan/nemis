@@ -1,9 +1,9 @@
-import importlib
+import imp
 import os
 import sys
 
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-wsgi = importlib.abc.ResourceLoader.load_module('wsgi', 'main.py')
+wsgi = imp.load_source('wsgi', 'main.py')
 application = wsgi.application
