@@ -40,7 +40,7 @@ def creds_found(user, psk):
 
 @app.route('/',methods=['GET','POST'])
 def load_index():
-
+    print("clicked and visited")
     if request.method == 'POST':
         user = request.form.get('username')
         password = request.form.get('password')
